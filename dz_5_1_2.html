@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            border: solid grey;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body onload="create_table()">
+<table>
+    <tbody id="chess"></tbody>
+</table>
+<script>
+    function create_table() {
+        let el = '8';
+        let m = 0;
+        let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+        for (let j = 1; j <= 9; j++) {
+            let new_tr = document.createElement('tr')
+            chess.appendChild(new_tr)
+            for (let i = 1; i <= 9; i++) {
+                let new_td = document.createElement('td')
+                chess.appendChild(new_td)
+                if (j !== 9 && i !== 1) {
+                    if (j % 2 === 1 && i % 2 === 1) {
+                        new_td.style.backgroundColor = 'black'
+                    }
+                    if (j % 2 === 0 && i % 2 === 0) {
+                        new_td.style.backgroundColor = 'black'
+                        }
+                    }
+                else if (j === 9 && i !== 1) {
+                    new_td.innerHTML = alphabet[m];
+                    m++;
+                }
+                else if (i === 1 && j !== 9) {
+                    new_td.innerHTML = el;
+                }
+            }
+        el -= 1
+        }
+    }
+
+</script>
+</body>
+</html>

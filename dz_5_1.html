@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шахматная доска</title>
+</head>
+
+<body onload="cell()">
+    <canvas height="250" width="250" id="board" style="border:2px solid grey"></canvas>
+    <script>
+        let chess = document.getElementById("board");
+        let ctx = chess.getContext("2d");
+
+        function cell() {
+            let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+            for (let x = 25; x < 225; x += 50)
+                for (let y = 50; y < 225; y += 50) {
+                    ctx.fillRect(x, y, 25, 25);
+                }
+            for (let x = 50; x < 225; x += 50)
+                for (let y = 25; y < 225; y += 50) {
+                    ctx.fillRect(x, y, 25, 25);
+                }
+            ctx.strokeRect(25, 25, 200, 200);
+            let j = 35;
+            for (let i = 0; i <8; i++) {
+                ctx.fillText(alphabet[i], j, 240);
+                j += 25;
+            }
+            let m = 215;
+            for (let n = '1'; n < 9; n++) {
+                ctx.fillText(n, 15, m);
+                m -= 25;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
